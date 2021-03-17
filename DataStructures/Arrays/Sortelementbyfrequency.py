@@ -1,4 +1,4 @@
-arr = [2, 5, 2, 8, 5, 6, 8, 8, 5]
+arr = [2, 5, 2, -1, 6, 9999999, 5, 8, 8, 8]
 size = len(arr)
 
 
@@ -34,17 +34,55 @@ def multidim_mergesort(arr, pos):
             k += 1
 
 
+# sort to compare index if elemetes are same.
+def sortCompareindex(arr, pos):
+    if len(arr) > 1:
+        mid = len(arr) // 2  # get middle element
+        left_arr = arr[:mid]
+        right_arr = arr[mid:]
+
+        multidim_mergesort(left_arr, pos)
+        multidim_mergesort(right_arr, pos)
+
+        i = j = k = 0
+        while i < len(left_arr) and j < len(right_arr):
+            if left_arr[i][pos] > right_arr[j][pos]:
+                arr[k] = left_arr[i]
+                i += 1
+                k += 1
+            elif left_arr[i][pos] == right_arr[j][pos]:
+                if left_arr[i][1] < right_arr[j][1]:
+                    arr[k] = left_arr[i]
+                    i += 1
+                    k += 1
+                else:
+                    arr[k] = right_arr[j]
+                    j += 1
+                    k += 1
+
+            else:
+                arr[k] = right_arr[j]
+                j += 1
+                k += 1
+        while i < len(left_arr):
+            arr[k] = left_arr[i]
+            i += 1
+            k += 1
+        while j < len(right_arr):
+            arr[k] = right_arr[j]
+
+            j += 1
+            k += 1
+
+
 ar = []
-# get @D array by postion
+# get 2D array by position
 for i in range(0, size):
     ar.append([arr[i], i + 1])
 
-# ar = [1, 4, 5, 2]
 multidim_mergesort(ar, 0)
 print(ar)
-# ar = [[8, 8], [8, 7], [8, 4], [6, 6], [5, 5], [5, 2], [2, 3],[4,1]]
 count = 1
-k = 0
 new = []
 min = ar[0]
 for i in range(1, size):
@@ -61,8 +99,7 @@ for i in range(1, size):
         min.append(count)
         new.append(min)
 print(new)
-
-multidim_mergesort(new, 2)
+sortCompareindex(new, 2)
 print(new)
 print("Result")
 for i in range(0, len(new)):
