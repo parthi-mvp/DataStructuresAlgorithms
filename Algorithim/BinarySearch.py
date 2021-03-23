@@ -12,7 +12,6 @@ while l <= r:
     mid = l + (r - l) // 2
     if arr[mid] == x:
         print(mid)
-        print(arr[mid])
         break
     elif arr[mid] < x:
         l = mid + 1
