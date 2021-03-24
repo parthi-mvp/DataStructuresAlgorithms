@@ -32,6 +32,7 @@ def getmin(arr):
 
 min = getmin(arr)
 max = getmax(arr)
+
 is_consecutive = False
 if max - min + 1 == n:
     is_consecutive = True
