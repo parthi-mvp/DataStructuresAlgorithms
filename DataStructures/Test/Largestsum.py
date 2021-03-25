@@ -1,3 +1,5 @@
+# 8 mins
+
 arr = [-12, -2, -3, -4, -5, -3, -4]
 
 from sys import maxsize
