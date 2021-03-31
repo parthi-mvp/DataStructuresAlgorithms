@@ -15,7 +15,7 @@ for i in range(1, n - 1):
         print(arr[i])
 
 
-# Brinary search approach
+# Binary search approach
 
 def findpeak(arr, low, high,n):
     mid = low + (high + low)
