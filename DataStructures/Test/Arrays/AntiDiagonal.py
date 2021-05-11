@@ -1,8 +1,6 @@
 def diagonal(A):
     n = len(A)
-
     res = []
-
     for a in range(0, n):
         temp = []
         i, j = a, 0
