@@ -1,8 +1,4 @@
-# Given an integer array A, find if an integer p exists in the array such that the number of integers greater than p in the array equals to p.
-# Output Format:
-# Return 1 if any such integer p is found else return -1.
-# A = [3, 2, 1, 3] , Output = 1
-# A = [1, 1, 3, 3] , Output = -1
+
 
 # Time taken 13 mins
 
