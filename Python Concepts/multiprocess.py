@@ -1,12 +1,26 @@
-from multiprocessing import Process
+import multiprocessing as mp
 import os
 
+
 def fun(a):
-    print("in PFun")
-    print(os.getppid())
-    print(os.getpid())
+    print("Fun Parent  pid  - ",os.getppid())
+    print("Fun  pid  - ",os.getpid())
+
 
 if "__main__" == __name__:
-
-    p = Process(target=fun,args=('bob',))
+    print("Script Main pid  - ", os.getpid())
+    p = mp.Process(target=fun,args=('bob',))
+    p1 = mp.Process(target=fun,args=('bob',))
     p.start()
+    p1.start()
+
+
+
+
+a = [1,2,4]
+
+list()
+dict()
+
+
+from django.db.models import  Model
